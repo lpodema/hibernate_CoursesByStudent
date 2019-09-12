@@ -1,0 +1,60 @@
+STUDENT
+
+	+ id (int)
+	+ name (String)
+	+ lastName (String)
+	+ dni (int)
+	+ birtDate (Date)
+	+ email (String)
+	+ phone (String)
+	+ address (Address) -> (1 - 1)
+
+
+ADDRESS
+
+	+ id (int)
+	+ street (String)
+	+ number (short)
+	+ postal (String)
+	+ province (Province) -> (* -> 1)
+
+
+PROVINCE
+
+	+ id (int)
+	+ name (String)
+
+
+COURSE
+
+	+ id (int)
+	+ name (String)
+	+ description (String)
+	+ classes (Collecion (Classes)) -> (* -> *)
+
+CLASS
+
+	+ id (int)
+	+ name (String)
+	+ description (String)
+	+ topic (String)
+	+ course (Collection (Courses)) -> (* -> *)
+
+
+COURSES
+
+	+ id (int)
+	+ course (Course) (* -> 1)
+	+ init (Date)
+	+ end (Date)
+	+ schedule (Enum[Morning, afternoon, evening])
+	+ start (Time)
+
+COURSES BY STUDENT
+
+	+ courses
+	+ student
+
+	+ id (int)
+	+ course (Course) (* -> 1)
+
